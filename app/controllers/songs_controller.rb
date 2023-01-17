@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-
+    wrap_parameters format: []
 
     def index
         user = User.find_by(id: session[:user_id])
@@ -29,26 +29,26 @@ class SongsController < ApplicationController
         user = User.find_by(id: session[:user_id])
         if user
             user_songs = Song.where(user_id: user.id)
-            render json: user_songs, include: [:album, :user], include: :user
+            render json: user_songs, include: [:album, :user]
         else
             render json: { errors: ["Not authorized"] }, status: :unauthorized
         end
     end
 
-    def testing
-        user = User.find_by(id: session[:user_id])
-        if user
-            song = Song.find_by(song_title: params[:song_title])
-            render json: song
-        else
-            render json: { errors: ["Not authorized"] }, status: :unauthorized
-        end
-    end
+    # def testing
+    #     user = User.find_by(id: session[:user_id])
+    #     if user
+    #         song = Song.find_by(song_title: params[:song_title])
+    #         render json: song
+    #     else
+    #         render json: { errors: ["Not authorized"] }, status: :unauthorized
+    #     end
+    # end
 
     def update
         user = User.find_by(id: session[:user_id])
         if user
-            song = Song.find_by(id: user.id)
+            song = Song.find_by(id: params[:id])
             if song
                 song.update(song_params)
                 if song.valid?
@@ -67,7 +67,7 @@ class SongsController < ApplicationController
     def destroy
         user = User.find_by(id: session[:user_id])
         if user
-            song = Song.find_by(id: user.id)
+            song = Song.find_by(id: params[:id])
             if song.valid?
                 song.destroy
                 head :no_content

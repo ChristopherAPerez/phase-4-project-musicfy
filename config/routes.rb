@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  post "/signup", to: "users#create"
-
   get "/users", to: "users#index"
+  post "/signup", to: "users#create"
+  get "/me", to: "users#show"
 
   get "/albums", to: "albums#index"
   post "upload_album", to: "albums#create"
@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   get "/my_songs", to: "songs#show"
   patch "/update_song", to: "songs#update"
   delete "/delete_song", to: "songs#destroy"
-  get "/testing", to: "songs#testing"
 
   ################# Routes #####################
 

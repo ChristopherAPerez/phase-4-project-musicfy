@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
         user = User.find_by(id: session[:user_id])
         if user
             albums = Album.all
-            render json: albums
+            render json: albums, include: [:album, :user]
         else
           render json: { errors: ["Not authorized"] }, status: :unauthorized
         end
@@ -15,9 +15,8 @@ class AlbumsController < ApplicationController
         user = User.find_by(id: session[:user_id])
         if user
             album = user.albums.create(album_params)
-            
             if album
-                render json: album, status: :created
+                render json: album, include: [:album, :user], status: :created
             else
                 render json: { errors: ["errors"] }, status: :unprocessable_entity
             end
@@ -30,7 +29,7 @@ class AlbumsController < ApplicationController
         user = User.find_by(id: session[:user_id])
         if user
             user_albums = Album.where(user_id: user.id)
-            render json: user_albums, include: :user
+            render json: user_albums, include: [:album, :user]
         else
             render json: { errors: ["Not authorized"] }, status: :unauthorized
         end
@@ -39,11 +38,11 @@ class AlbumsController < ApplicationController
     def update
         user = User.find_by(id: session[:user_id])
         if user
-            album = Album.find_by(id: user.id)
+            album = Album.find_by(id: params[:id])
             if album
                 album.update(album_params)
                 if album.valid?
-                    render json: album, status: :accepted
+                    render json: album, include: [:album, :user], status: :accepted
                 else
                     render json: { errors: scientist.errors.full_messages }, status: :unprocessable_entity
                 end
@@ -58,7 +57,7 @@ class AlbumsController < ApplicationController
     def destroy
         user = User.find_by(id: session[:user_id])
         if user
-            album = Album.find_by(id: user.id)
+            album = Album.find_by(id: params[:id])
             if album.valid?
                 album.destroy
                 head :no_content
