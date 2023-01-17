@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   delete "/delete_album", to: "albums#destroy"
 
   get "/songs", to: "songs#index"
+  post "upload_song", to: "songs#create"
+  get "/my_songs", to: "songs#show"
+  patch "/update_song", to: "songs#update"
+  delete "/delete_song", to: "songs#destroy"
+  get "/testing", to: "songs#testing"
 
   ################# Routes #####################
 
