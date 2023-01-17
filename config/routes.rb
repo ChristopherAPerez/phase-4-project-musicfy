@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get "/albums", to: "albums#index"
   post "upload_album", to: "albums#create"
   get "/my_albums", to: "albums#show"
+  patch "/update_album", to: "albums#update"
+  delete "/delete_album", to: "albums#destroy"
 
   get "/songs", to: "songs#index"
 
