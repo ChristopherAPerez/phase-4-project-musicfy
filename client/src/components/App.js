@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-// import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import NavBar from "./NavBar";
 import Login from "./Login";
+import User from "../pages/User";
 
 // import logo from './logo.svg';
 import './App.css';
@@ -19,6 +20,8 @@ function App() {
     });
   }, []);
 
+  console.log(user)
+
   if (!user) return <Login onLogin={setUser} user={user}/>;
 
   return (
@@ -28,7 +31,12 @@ function App() {
       <NavBar />
 
     <main>
-      <p>It works!</p>
+      <Routes>
+
+        <Route path="/" element={<User user={user}/>}>
+        </Route>
+        
+      </Routes>
     </main>
 
     </div>
