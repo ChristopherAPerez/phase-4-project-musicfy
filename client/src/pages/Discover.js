@@ -1,11 +1,11 @@
 import React from "react";
 
-function Upload() {
+function Discover() {
     return (
       <div>
-        <h1>Upload!</h1>
+        <h1>Discover!</h1>
       </div>
     )
 }
   
-export default Upload;
+export default Discover;

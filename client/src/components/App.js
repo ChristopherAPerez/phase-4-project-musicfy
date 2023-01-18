@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+
 import Header from "./Header";
 import NavBar from "./NavBar";
+
 import Login from "./Login";
+
 import User from "../pages/User";
+import Discover from "../pages/Discover";
+import MyMusic from "../pages/MyMusic";
 import Upload from "../pages/Upload";
 
 // import logo from './logo.svg';
 import './App.css';
-import MyMusic from "../pages/MyMusic";
 
 function App() {
 
@@ -36,6 +40,9 @@ function App() {
       <Routes>
 
         <Route path="/user" element={<User user={user}/>}>
+        </Route>
+
+        <Route path="/" element={<Discover  />}>
         </Route>
 
         <Route path="/music" element={<MyMusic />}>
