@@ -5,13 +5,13 @@ import LoginForm from "../pages/LoginForm";
 import SignUpForm from "../pages/SignUpForm";
 // import { Button } from "../styles";
 
-function Login({ onLogin, user }) {
+function Login({ onLogin, user, setUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
     <div className="App">
 
-      <Header user={user}/>
+      <Header user={user} setUser={setUser}/>
 
       {showLogin ? (
         <div>

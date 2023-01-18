@@ -28,12 +28,15 @@ function App() {
 
   console.log(user)
 
-  if (!user) return <Login onLogin={setUser} user={user}/>;
+  if (!user) return <Login onLogin={setUser} user={user} setUser={setUser}/>;
 
   return (
     <div className="App">
 
-      <Header user={user}/>
+      <Header user={user} setUser={setUser} />
+      <div>
+        <h1>Space!</h1>
+      </div>
       <NavBar />
 
     <main>

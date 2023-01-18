@@ -1,9 +1,12 @@
 import React from "react";
+import UploadAlbum from "../pages/UploadAlbum";
+import UploadSong from "../pages/UploadSong";
 
 function Upload() {
     return (
       <div>
-        <h1>Upload!</h1>
+        <UploadAlbum />
+        <UploadSong />
       </div>
     )
 }
