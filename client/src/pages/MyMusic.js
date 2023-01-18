@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
+import MusicList from "../pages/MusicList";
 
 function MyMusic() {
 
-    const [albums, setAlbums] = useState([]);
+    const [songs, setSongs] = useState([]);
 
     useEffect(() => {
         fetch("/my_songs")
             .then((r) => r.json())
-            .then(setAlbums);
+            .then(setSongs);
     }, []);
 
-    console.log(albums)
+    console.log(songs)
 
     return (
         <div>
-            {}
+            {songs.map((song) => {
+                return <MusicList key={song.id} song={song}/>
+            })}
         </div>
     )
 }
