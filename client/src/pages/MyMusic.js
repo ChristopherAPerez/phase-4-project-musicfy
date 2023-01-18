@@ -11,7 +11,7 @@ function MyMusic() {
             .then(setSongs);
     }, []);
 
-    console.log(songs)
+    // console.log(songs)
 
     return (
         <div>

@@ -4,6 +4,7 @@ import Header from "./Header";
 import NavBar from "./NavBar";
 import Login from "./Login";
 import User from "../pages/User";
+import Upload from "../pages/Upload";
 
 // import logo from './logo.svg';
 import './App.css';
@@ -38,6 +39,9 @@ function App() {
         </Route>
 
         <Route path="/music" element={<MyMusic />}>
+        </Route>
+
+        <Route path="/upload" element={<Upload />}>
         </Route>
 
       </Routes>
