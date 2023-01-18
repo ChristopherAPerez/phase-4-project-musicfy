@@ -7,6 +7,7 @@ import User from "../pages/User";
 
 // import logo from './logo.svg';
 import './App.css';
+import MyMusic from "../pages/MyMusic";
 
 function App() {
 
@@ -33,9 +34,12 @@ function App() {
     <main>
       <Routes>
 
-        <Route path="/" element={<User user={user}/>}>
+        <Route path="/user" element={<User user={user}/>}>
         </Route>
-        
+
+        <Route path="/music" element={<MyMusic />}>
+        </Route>
+
       </Routes>
     </main>
 

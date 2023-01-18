@@ -9,8 +9,8 @@ function NavBar() {
 
     return (
         <nav>
-            <NavLink className="link" to="/" style={linkStyle}>User</NavLink>
-            <NavLink className="link" to="/" style={linkStyle}>My Music</NavLink>
+            <NavLink className="link" to="/user" style={linkStyle}>User</NavLink>
+            <NavLink className="link" to="/music" style={linkStyle}>My Music</NavLink>
             <NavLink className="link" to="/" style={linkStyle}>Upload Album/Song</NavLink>
         </nav>
     );
