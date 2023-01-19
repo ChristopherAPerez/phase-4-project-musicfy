@@ -8,7 +8,7 @@ function MusicList( { album } ) {
     return (
         <>
         <br></br>
-        <img src={album.artist_image} width="90%" height="100"/>
+        <img src={album.artist_image} alt={album.artist_image} width="90%" height="100"/>
         {songs.map((song) => {
             return <Table key={song.id} song={song}/>
         })}

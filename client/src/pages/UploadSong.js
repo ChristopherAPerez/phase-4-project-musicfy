@@ -1,11 +1,9 @@
 // // import { useState } from "react";
 import AlbumOptions from "./AlbumOptions"
 
-function UploadSong({ user }) {
+function UploadSong( { user } ) {
 
     const albums = user.albums
-
-    console.log(albums)
 
     return (
         <form>
