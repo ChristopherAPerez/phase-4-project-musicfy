@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import DiscoverList from "./DiscoverList"
 
 function Discover() {
 
@@ -9,12 +10,12 @@ function Discover() {
       .then((r) => r.json())
       .then((albums) => setAlbums(albums));
   }, []);
-
-  console.log(albums)
   
     return (
       <div>
-        <h1>Discover!</h1>
+        {albums.map((album) => {
+          return <DiscoverList key={album.id} album={album}/>
+        })}
       </div>
     )
 }
