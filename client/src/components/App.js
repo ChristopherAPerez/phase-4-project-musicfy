@@ -30,9 +30,7 @@ function App() {
     <div className="App">
 
       <Header user={user} setUser={setUser} />
-      <div>
-        <h1>Space!</h1>
-      </div>
+      <br></br>
       <NavBar />
 
     <main>

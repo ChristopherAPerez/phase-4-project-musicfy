@@ -1,17 +1,18 @@
 import React from 'react';
+import Table from "./Table"
 
-function MusicList( { song } ) {
+function MusicList( { album } ) {
 
-    const album = song.album
-
-    console.log(song)
-    console.log(album)
+    const songs = album.songs
 
     return (
-        <div>
-            <img src={album.album_image} alt={album.album_image}/>
-            <p>{song.song_title}</p>
-        </div>
+        <>
+        <br></br>
+        <img src={album.artist_image} width="90%" height="100"/>
+        {songs.map((song) => {
+            return <Table key={song.id} song={song}/>
+        })}
+        </>
     )
 }
 

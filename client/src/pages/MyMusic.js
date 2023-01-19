@@ -1,25 +1,23 @@
-// import { useEffect, useState } from "react";
-// import MusicList from "../pages/MusicList";
+import React, { useEffect, useState } from "react";
+import MusicList from "./MusicList"
 
 function MyMusic() {
 
-    // const [songs, setSongs] = useState([]);
+    const [albums, setAlbums] = useState([]);
 
-    // useEffect(() => {
-    //     fetch("/my_songs")
-    //         .then((r) => r.json())
-    //         .then(setSongs);
-    // }, []);
-
-    // console.log(songs)
-
+    useEffect(() => {
+      fetch("/my_albums")
+        .then((r) => r.json())
+        .then((albums) => setAlbums(albums));
+    }, []);
+  
     return (
-        <div>
-            {/* {songs.map((song) => {
-                return <MusicList key={song.id} song={song}/>
-            })} */}
-        </div>
+      <>
+        {albums.map((album) => {
+          return <MusicList key={album.id} album={album}/>
+        })}
+      </>
     )
 }
-
+  
 export default MyMusic;
