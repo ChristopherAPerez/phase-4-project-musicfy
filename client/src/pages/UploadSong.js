@@ -24,13 +24,13 @@ function UploadSong({ user }) {
             <input type="number" /> : <input type="number" />
 
             <br></br>
-{/* 
+
             <label>Album:</label>
             <select>
                 {albums.map((album) => {
                     return <AlbumOptions key={album.id} album={album} />
                 })}
-            </select> */}
+            </select>
 
             <br></br>
 

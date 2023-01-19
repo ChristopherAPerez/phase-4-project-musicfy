@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
         user = User.find_by(id: session[:user_id])
         if user
             albums = Album.all
-            render json: albums, include: [:album, :user]
+            render json: albums, include: :songs
         else
           render json: { errors: ["Not authorized"] }, status: :unauthorized
         end

@@ -5,7 +5,7 @@ function AlbumOptions( { album } ){
     console.log(album)
 
     return (
-        <option value={album}>{album}</option>
+        <option value={album.album_title}>{album.album_title}</option>
     )
 }
 
