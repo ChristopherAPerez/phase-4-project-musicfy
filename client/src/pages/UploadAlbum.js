@@ -21,7 +21,7 @@ function UploadAlbum() {
             <label>Genre:</label>
             <select>
                 {genres.map((genre) => {
-                    return <Options key={genre} genre={genre} />
+                    return <Options key={genre} option={genre} />
                 })}
             </select>
 
@@ -39,6 +39,10 @@ function UploadAlbum() {
 
             <label>Length:</label>
             <input type="number" /> : <input type="number" />
+
+            <br></br>
+
+            <input type="submit"/>
 
         </form>
     )
