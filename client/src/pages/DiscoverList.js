@@ -1,14 +1,19 @@
 import React from "react";
+import Table from "./Table"
 
 function DiscoverList({ album }) {
+
+    const songs = album.songs
+
     return (
         <>
-            <img src={album.artist_image} alt={album.artist_image} width="200" height="250"/>
-            <h1>{album.artist}</h1>
+            <br></br>
             <img src={album.album_image} alt={album.album_image} width="50" height="50"/>
-            <table>
-                
-            </table>
+            <p>{album.album_title}</p>
+            <br></br>
+            {songs.map((song) => {
+                return <Table key={song.id} song={song}/>
+            })}
         </>
     )
 }
