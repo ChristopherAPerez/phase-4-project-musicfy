@@ -4,10 +4,12 @@ import UploadSong from "../pages/UploadSong";
 
 function Upload( { user } ) {
     return (
-      <div>
+      <>
+        <br></br>
         <UploadAlbum user={user}/>
+        <br></br>
         <UploadSong user={user}/>
-      </div>
+      </>
     )
 }
   
