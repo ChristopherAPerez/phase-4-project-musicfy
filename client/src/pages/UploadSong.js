@@ -1,7 +1,11 @@
 // // import { useState } from "react";
-import Options from "./Options"
+import AlbumOptions from "./AlbumOptions"
 
-function UploadSong() {
+function UploadSong({ user }) {
+
+    const albums = user.albums
+
+    console.log(albums)
 
     return (
         <form>
@@ -20,11 +24,11 @@ function UploadSong() {
             <input type="number" /> : <input type="number" />
 
             <br></br>
-
-            {/* <label>Album:</label>
+{/* 
+            <label>Album:</label>
             <select>
-                {.map(() => {
-                    return <Options key={} option={} />
+                {albums.map((album) => {
+                    return <AlbumOptions key={album.id} album={album} />
                 })}
             </select> */}
 

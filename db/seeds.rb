@@ -58,6 +58,7 @@ vessel = Album.create(album_title: "Vessel",
 
 puts "🏕 Seeding songs..."
 sweatpants = Song.create(song_title: "IV.Sweatpants", feature: "Problem", song_length: 181, streams: 9887, user_id: donald_glover.id, album_id: because_the_internet.id)
+three_thousand_five = Song.create(song_title: "3005", feature: nil, song_length: 235, streams: 3005, user_id: donald_glover.id, album_id: because_the_internet.id)
 weak = Song.create(song_title: "Weak", feature: nil, song_length: 201, streams: 3213, user_id: adam_met.id, album_id: the_click.id)
 karma = Song.create(song_title: "Karma", feature: nil, song_length: 245, streams: 9052, user_id: jack_met.id, album_id: neotheater.id)
 ordinary_people = Song.create(song_title: "Ordinaryish People", feature: "Blue Man Group", song_length: 219, streams: 2109, user_id: ryan_met.id, album_id: ok.id)

@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-function TeamOptions( { option } ){
+function Options( { option } ){
 
-    
+    console.log(option)
 
     return (
         <option value={option}>{option}</option>
     )
 }
 
-export default TeamOptions;
+export default Options;

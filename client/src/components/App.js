@@ -17,8 +17,6 @@ import './App.css';
 function App() {
 
   const [user, setUser] = useState(null);
-  const [userSongs, setUserSongs] = useState(null);
-  const [userAlbums, setUserAlbums] = useState(null);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -27,26 +25,6 @@ function App() {
       }
     });
   }, []);
-
-  useEffect(() => {
-    fetch("/my_albums").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUserAlbums(user));
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    fetch("/my_songs").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUserSongs(user));
-      }
-    });
-  }, []);
-
-  console.log(user)
-  console.log(userSongs)
-  console.log(userAlbums)
 
   if (!user) return <Login onLogin={setUser} user={user} setUser={setUser}/>;
 
@@ -62,7 +40,7 @@ function App() {
     <main>
       <Routes>
 
-        <Route path="/user" element={<User user={user}/>}>
+        <Route path="/user" element={<User user={user} />}>
         </Route>
 
         <Route path="/" element={<Discover  />}>
@@ -71,7 +49,7 @@ function App() {
         <Route path="/music" element={<MyMusic />}>
         </Route>
 
-        <Route path="/upload" element={<Upload />}>
+        <Route path="/upload" element={<Upload user={user} />}>
         </Route>
 
       </Routes>
