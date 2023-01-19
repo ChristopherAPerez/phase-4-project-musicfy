@@ -16,7 +16,7 @@ class SongsController < ApplicationController
         if user
             song = user.songs.create(song_params)
             if song
-                render json: song, include: [:album, :user], status: :created
+                render json: song status: :created
             else
                 render json: { errors: ["errors"] }, status: :unprocessable_entity
             end

@@ -1,4 +1,3 @@
-// // import { useState } from "react";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Options from "./Options"
@@ -20,29 +19,32 @@ function UploadAlbum() {
 
     function handleSubmit(e) {
 
-        // setLength((minutes * 60) + seconds)
+        e.preventDefault();
 
-        // e.preventDefault();
+        let timeBySeconds = 0
+        timeBySeconds =+ seconds
+        timeBySeconds += minutes * 60
 
-        // fetch("upload_album", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         album_title: title,
-        //         artist: artist,
-        //         genre: genre,
-        //         album_image: albumImage,
-        //         artist_image: artistImage,
-        //         album_length: length,
-        //         likes: 0
-        //     }),
-        // })
-        //     .then((r) => r.json())
-        //     navigate("/music")
+        setLength(timeBySeconds)
 
-        console.log(length)
+        fetch("upload_album", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                album_title: title,
+                artist: artist,
+                genre: genre,
+                album_image: albumImage,
+                artist_image: artistImage,
+                album_length: length,
+                likes: 0
+            }),
+        })
+            .then((r) => r.json())
+            navigate("/music")
+
     }
 
     return (
